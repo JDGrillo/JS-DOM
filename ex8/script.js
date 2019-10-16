@@ -11,9 +11,12 @@ let tags = document.querySelectorAll("li");
 
 button.addEventListener("click", function () {
     item = document.createElement("li");
-    item.classList.add("item")
+    // item.contentEditable = "true";
+    item.addEventListener("click", function(){
+        item.style.textDecorationLine = "line-through";
+    })
     item.innerHTML = document.getElementById("description").value;
-    item.addEventListener("click", () => item.style.textDecorationLine = "line-through");
+
     document.getElementById("todo-list").appendChild(item);
 
     // const strikethrough = event => {
@@ -26,6 +29,6 @@ button.addEventListener("click", function () {
     // document.getElementById("todo-list").insertAdjacentHTML("beforeend", item);
 })
 
-tags.forEach(tag => tag.addEventListener("click", function () {
-    this.style.textDecorationLine = "line-through";
-}))
+// tags.forEach(tag => tag.addEventListener("click", function () {
+//     this.style.textDecorationLine = "line-through";
+// }))
